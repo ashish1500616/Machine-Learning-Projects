@@ -1,4 +1,4 @@
-# Machine Learning Engineer Nanodegree
+# Machine Learning Project 1
 # Model Evaluation and Validation
 ## Project: Predicting Boston Housing Prices
 
@@ -13,7 +13,7 @@ This project requires **Python** and the following Python libraries installed:
 
 You will also need to have software installed to run and execute a [Jupyter Notebook](http://ipython.org/notebook.html)
 
-If you do not have Python installed yet, it is highly recommended that you install the [Anaconda](http://continuum.io/downloads) distribution of Python, which already has the above packages and more included. 
+If you do not have Python installed yet, it is highly recommended that you install the [Anaconda](http://continuum.io/downloads) distribution of Python, which already has the above packages and more included.
 
 ### Code
 
@@ -44,3 +44,8 @@ The modified Boston housing dataset consists of 489 data points, with each datap
 
 **Target Variable**
 4. `MEDV`: median value of owner-occupied homes
+
+
+
+## Link to the Project
+[Link to the Project](https://nbviewer.jupyter.org/github/ashish1500616/Machine-Learning-Projects/blob/master/p1_boston_housing/boston_housing.ipynb)
