@@ -15,7 +15,7 @@ What things you need to install the software and how to install them
 ```
 NUMPY
 PANDAS
-SEAORN
+SEABORN
 MATPLOTLIB
 NLTK STOPWORDS
 KERAS
