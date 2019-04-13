@@ -2,7 +2,7 @@
 
 *Teach a Quadcopter How to Fly!*
 
-In this project, I have designed an agent to fly a quadcopter, and then train it using a reinforcement learning algorithm.
+In this project, you will design an agent to fly a quadcopter, and then train it using a reinforcement learning algorithm of your choice! 
 
 ## Project Instructions
 

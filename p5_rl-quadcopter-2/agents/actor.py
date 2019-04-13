@@ -20,8 +20,6 @@ class Actor:
         self.action_high = action_high
         self.action_range = self.action_high - self.action_low
 
-        # Initialize any other variables here
-
         self.build_model()
 
     def build_model(self):
@@ -29,23 +27,17 @@ class Actor:
         # Define input layer (states)
         states = layers.Input(shape=(self.state_size,), name='states')
 
-        kernel_initializer='glorot_normal'
-        
         # Add hidden layers
-        net = layers.Dense(units=16, kernel_initializer=kernel_initializer)(states)
+        net = layers.Dense(units=400,kernel_regularizer=layers.regularizers.l2(1e-6))(states)
         net = layers.BatchNormalization()(net)
-        net = layers.LeakyReLU(1e-2)(net)
-        net = layers.Dense(units=32, kernel_initializer=kernel_initializer)(net)
+        net = layers.Activation("relu")(net)
+        net = layers.Dense(units=300,kernel_regularizer=layers.regularizers.l2(1e-6))(net)
         net = layers.BatchNormalization()(net)
-        net = layers.LeakyReLU(1e-2)(net)
+        net = layers.Activation("relu")(net)
 
-        #net = layers.Dense(units=4, activation='tanh')(net)
-        
-        # Try different layer sizes, activations, add batch normalization, regularizers, etc.
-        
         # Add final output layer with sigmoid activation
         raw_actions = layers.Dense(units=self.action_size, activation='sigmoid',
-            name='raw_actions', kernel_initializer=kernel_initializer)(net)
+            name='raw_actions',kernel_initializer=layers.initializers.RandomUniform(minval=-0.003, maxval=0.003))(net)
 
         # Scale [0, 1] output for each action dimension to proper range
         actions = layers.Lambda(lambda x: (x * self.action_range) + self.action_low,
@@ -58,10 +50,8 @@ class Actor:
         action_gradients = layers.Input(shape=(self.action_size,))
         loss = K.mean(-action_gradients * actions)
 
-        # Incorporate any additional losses here (e.g. from regularizers)
-
         # Define optimizer and training function
-        optimizer = optimizers.Adam()
+        optimizer = optimizers.Adam(lr=.0001)
         updates_op = optimizer.get_updates(params=self.model.trainable_weights, loss=loss)
         self.train_fn = K.function(
             inputs=[self.model.input, action_gradients, K.learning_phase()],
