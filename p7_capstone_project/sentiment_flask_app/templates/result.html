@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+</head>
+<body>
+
+	<header>
+		<div class="container" style="text-align: center">
+        <h2>Sentiment analysis for Message  </h2>
+        <br>
+        {{mess}}
+		
+	</header>
+	<p style="color:blue;font-size:20;text-align: center;"><b>Results for Review</b></p>
+	<div class="results">
+        <div><center>MLP Model <br>
+            <ul>
+                <li>Confidence : {{prediction1[0]*100 }}</li>
+                  <li>Sentiment :{{prediction1[1]}}</li>
+            </ul>
+           <br>    
+        </center>
+
+    </div>
+    <div><center>CNN Model <br>
+        <ul>
+            <li>Confidence : {{prediction2[0]*100 }}</li>
+              <li>Sentiment : {{prediction2[1]}}</li>
+        </ul>
+       <br>    
+    </center>
+     
+    </div>
+    <div><center>NCNN Model <br>
+        <ul>
+            <li>Confidence :{{prediction3[0]*100 }}</li>
+              <li>Sentiment : {{prediction3[1]}}</li>
+        </ul>
+       <br>    
+    </center>
+     
+    </div>
+</div>
+
+		
+	<!-- {% if prediction == 1%}
+	<h2 style="color:red;">Spam</h2>
+	{% elif prediction == 0%}
+	<h2 style="color:blue;">Not a Spam (It is a Ham)</h2>
+	{% endif %} -->
+
+	</div>
+
+</body>
+</html>

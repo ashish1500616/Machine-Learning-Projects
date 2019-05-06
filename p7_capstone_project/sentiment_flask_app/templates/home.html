@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sentiment Analysis</title>
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		<div id="brandname">
+			<center><h1>Bit Mesra</h1>
+				<img src="/home/ashish/Desktop/Github/Machine-Learning-Projects/p7_capstone_project/download.jpg" alt="">
+			<h5>Final Year Project 2016-2019</h5>
+			<h2>Sentiment Analysis Of Movie Review</h2>
+		</center>	
+			
+		</div>
+		
+		<center>	
+			<form action="{{ url_for('predict')}}" method="POST">
+				<p>Enter Your Message Here</p>
+				<!-- <input type="text" name="comment"/> -->
+				<textarea name="message" rows="4" cols="50"></textarea>
+				<br/>
+		
+				<input type="submit" class="btn-info" value="predict">
+			</form>
+			<br>
+			**Please Enter Review With Atleast more than 50 words.
+		</center>
+	
+		</div>
+	</header>
+	</div>
+
+	
+	
+
+</body>
+</html>
