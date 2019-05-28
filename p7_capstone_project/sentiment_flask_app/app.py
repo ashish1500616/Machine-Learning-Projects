@@ -11,11 +11,17 @@ from keras.preprocessing.sequence import pad_sequences
 import sys 
 #for reading operating system data
 import os
+
 #tell our app where our saved model is
+
 sys.path.append(os.path.abspath("./Model_Saved/model1"))
+
 from loadmodel1 import * 
+
 sys.path.append(os.path.abspath("./Model_Saved/model2"))
+
 from loadmodel2 import * 
+
 sys.path.append(os.path.abspath("./Model_Saved/model3"))
 from loadmodel3 import * 
 
@@ -138,6 +144,7 @@ def predict():
         tokenizer_model_2 = pickle.load(handle)
     with open('tokenizer_model_3.pickle', 'rb') as handle:
         tokenizer_model_3 = pickle.load(handle)
+        
     if request.method == 'POST':
         message = request.form['message']
         data = message
